@@ -10,7 +10,6 @@
     "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
-    "@libsql/client": "^0.18.0",
     "framer-motion": "^14.5.0",
     "lucide-react": "^1.60.0",
     "next": "16.4.2",

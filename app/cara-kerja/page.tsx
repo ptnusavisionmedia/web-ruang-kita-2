@@ -40,8 +40,8 @@ const steps = [
     title: "Booking dan bayar",
     text: "Puas setelah survei? Amankan kamar dengan biaya booking atau DP sewa satu bulan. Semua tagihan dan riwayatnya tercatat di dashboard.",
     points: ["Transfer bank, e-wallet, atau virtual account", "Nominal dihitung otomatis dari harga kamar", "Status pembayaran bisa dipantau kapan saja"],
-    href: "/dashboard",
-    cta: "Lihat dashboard",
+    href: "/bantuan",
+    cta: "Hubungi pengelola",
   },
 ];
 

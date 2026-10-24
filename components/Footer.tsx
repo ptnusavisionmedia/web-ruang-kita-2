@@ -9,14 +9,12 @@ const cols = [
       { href: "/", label: "Beranda" },
       { href: "/cara-kerja", label: "Cara kerja" },
       { href: "/properties", label: "Cari properti" },
-      { href: "/dashboard", label: "Dashboard" },
     ],
   },
   {
     title: "Bantuan",
     links: [
       { href: "/bantuan", label: "Pusat bantuan" },
-      { href: "/login", label: "Masuk / daftar" },
     ],
   },
 ];
@@ -58,7 +56,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
           <span>© 2026 RuangKita. Seluruh hak dilindungi.</span>
           <span className="flex items-center gap-4">
-            <span>Versi demo — pembayaran masih simulasi.</span>
+            <span>Versi demo.</span>
             <BackToTop />
           </span>
         </div>

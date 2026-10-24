@@ -1,9 +1,6 @@
-# Konfigurasi Netlify untuk Next.js (App Router, Server Actions, login username + SQLite).
-# Aplikasi ini memakai server-side rendering dan cookie sesi, jadi JANGAN memakai `output: "export"`.
-# Publish directory harus `.next` (bukan root repo), dan Netlify Next.js Runtime yang menjalankannya.
-#
-# Database: SQLite lewat libSQL/Turso. Isi DATABASE_URL dan DATABASE_AUTH_TOKEN di
-# Site configuration -> Environment variables (scope Builds + Runtime).
+# Konfigurasi Netlify untuk Next.js (App Router, Server Actions).
+# Situs ini tidak memakai database atau variabel environment apa pun.
+# Jangan memakai `output: "export"`; publish directory harus `.next` dan Netlify Next.js Runtime yang menjalankannya.
 
 [build]
   command = "npm run build"

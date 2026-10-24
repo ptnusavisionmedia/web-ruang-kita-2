@@ -69,7 +69,6 @@ export default function HelpPage() {
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link href="/properties" className={btnPrimary}>Cari properti</Link>
-            <Link href="/dashboard" className="text-sm font-semibold text-brand-800 underline decoration-accent-500 decoration-2 underline-offset-[6px]">Buka dashboard</Link>
           </div>
         </div>
       </section>

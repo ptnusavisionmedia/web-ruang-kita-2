@@ -6,16 +6,13 @@ import type { Property } from "@/types";
 import { cn, formatRupiah, seedOf } from "@/lib/utils";
 import PropertyImage from "./PropertyImage";
 import StatusBadge from "./StatusBadge";
-import SaveButton from "./SaveButton";
 
 /** Kartu tanpa kotak: foto besar, teks di bawahnya. `featured` untuk sorotan besar. */
 export default function PropertyCard({
   property: p,
-  saved = false,
   featured = false,
 }: {
   property: Property;
-  saved?: boolean;
   featured?: boolean;
 }) {
   const seed = seedOf(p.id);
@@ -36,9 +33,6 @@ export default function PropertyCard({
         </span>
         <div className="absolute left-3 top-3">
           <StatusBadge label={p.status} className="bg-white shadow-sm" />
-        </div>
-        <div className="absolute right-3 top-3">
-          <SaveButton propertyId={p.id} initialSaved={saved} variant="icon" />
         </div>
       </div>
 

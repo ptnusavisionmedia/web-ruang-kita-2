@@ -7,13 +7,11 @@ import { IconBed, IconBuilding, IconLayers, IconPin, IconRuler, IconUser } from 
 import Gallery from "@/components/Gallery";
 import { FacilityIcon } from "@/components/FacilityBadge";
 import StatusBadge from "@/components/StatusBadge";
-import SaveButton from "@/components/SaveButton";
 import Reveal from "@/components/Reveal";
 import { Stagger, StaggerItem } from "@/components/motion";
 import DataNotice from "@/components/DataNotice";
 import { Skeleton } from "@/components/Skeleton";
-import { fetchPropertyBySlug, fetchSavedIds } from "@/lib/data";
-import { getCurrentUser } from "@/lib/auth";
+import { fetchPropertyBySlug } from "@/lib/data";
 import { btnPrimary } from "@/lib/ui";
 import { formatRupiah, seedOf } from "@/lib/utils";
 import type { PropertyDetail } from "@/types";
@@ -36,13 +34,8 @@ async function Detail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   let p: PropertyDetail | null;
-  let saved = false;
   try {
     p = await fetchPropertyBySlug(slug);
-    if (p) {
-      const user = await getCurrentUser();
-      saved = user ? (await fetchSavedIds(user.id)).includes(p.id) : false;
-    }
   } catch (e) {
     console.error("PropertyDetail", e);
     return <DataNotice error="Gagal memuat properti ini." />;
@@ -216,12 +209,11 @@ async function Detail({ params }: { params: Promise<{ slug: string }> }) {
                   Kamar Penuh
                 </span>
               ) : (
-                <Link href={`/booking?property=${p.slug}`} className={btnPrimary + " w-full py-3.5"}>
-                  Booking Survei <ArrowRight className="h-4 w-4" />
+                <Link href="/bantuan" className={btnPrimary + " w-full py-3.5"}>
+                  Hubungi Pengelola <ArrowRight className="h-4 w-4" />
                 </Link>
               )}
-              <SaveButton propertyId={p.id} initialSaved={saved} />
-              <p className="pt-1 text-center text-xs text-muted">Tanpa biaya untuk menjadwalkan survei.</p>
+              <p className="pt-1 text-center text-xs text-muted">Hubungi pengelola untuk menjadwalkan survei.</p>
             </div>
           </div>
           </Reveal>

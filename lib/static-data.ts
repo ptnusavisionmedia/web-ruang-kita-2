@@ -1,7 +1,7 @@
 import type { FacilityRow, RoomRow } from "@/types/database";
 
 /**
- * Data properti awal. Dimasukkan otomatis ke database SQLite saat tabel properti masih kosong (lihat lib/db.ts).
+ * Data properti. Sumber data katalog (lib/data.ts), jadi situs berjalan tanpa database.
  */
 
 const FACILITY_LIST: Array<[string, string]> = [

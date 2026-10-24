@@ -81,7 +81,6 @@ export default function Catalog() {
   };
   const reset = () => changeFilters(DEFAULT_FILTERS);
 
-  const savedIds = new Set(data?.savedIds ?? []);
   const hasMore = data ? items.length < data.total : false;
   const firstLoad = loading && items.length === 0;
   const activeCount =
@@ -239,7 +238,7 @@ export default function Catalog() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ duration: 0.45, delay: Math.min(i % 9, 6) * 0.06, ease: [0.22, 1, 0.36, 1] }}
                       >
-                        <PropertyRow property={p} saved={savedIds.has(p.id)} />
+                        <PropertyRow property={p} />
                       </motion.div>
                     ))}
                   </motion.div>

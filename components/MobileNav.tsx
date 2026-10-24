@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import BottomNavBar, { type BottomNavItem } from "@/components/ui/bottom-nav-bar";
-import { IconChat, IconClipboard, IconHome, IconSearch, IconUser } from "@/components/icons";
+import { IconChat, IconClipboard, IconHome, IconSearch } from "@/components/icons";
 
 // Urutan sama dengan navbar atas: Beranda, Cara Kerja, Cari Properti, Bantuan (+ Akun).
 const items: BottomNavItem[] = [
@@ -10,7 +10,6 @@ const items: BottomNavItem[] = [
   { label: "Cara", icon: IconClipboard, href: "/cara-kerja" },
   { label: "Cari", icon: IconSearch, href: "/properties" },
   { label: "Bantuan", icon: IconChat, href: "/bantuan" },
-  { label: "Akun", icon: IconUser, href: "/dashboard" },
 ];
 
 /** Navigasi bawah untuk layar kecil (tersembunyi di md ke atas). */

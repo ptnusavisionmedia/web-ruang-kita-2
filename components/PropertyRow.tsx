@@ -5,18 +5,15 @@ import type { Property } from "@/types";
 import { cn, formatRupiah, seedOf } from "@/lib/utils";
 import { FacilityIcon } from "./FacilityBadge";
 import PropertyImage from "./PropertyImage";
-import SaveButton from "./SaveButton";
 import StatusBadge from "./StatusBadge";
 import { btnPrimary } from "@/lib/ui";
 
 /** Baris horizontal untuk katalog: mudah dipindai, harga selalu di kanan. */
 export default function PropertyRow({
   property: p,
-  saved = false,
   compact = false,
 }: {
   property: Property;
-  saved?: boolean;
   compact?: boolean;
 }) {
   const seed = seedOf(p.id);
@@ -81,10 +78,7 @@ export default function PropertyRow({
               <span className="text-xl font-semibold text-ink">{formatRupiah(p.price)}</span>
               <span className="text-sm text-muted"> / bln</span>
             </p>
-            <div className="flex items-center gap-2">
-              <SaveButton propertyId={p.id} initialSaved={saved} variant="icon-outline" />
-              <Link href={`/properties/${p.slug}`} className={btnPrimary + " whitespace-nowrap"}>Lihat Detail</Link>
-            </div>
+            <Link href={`/properties/${p.slug}`} className={btnPrimary + " whitespace-nowrap"}>Lihat Detail</Link>
           </div>
         )}
       </div>

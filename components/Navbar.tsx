@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import Logo from "./Logo";
-import AuthButton from "./AuthButton";
 import BottomNavBar, { type BottomNavItem } from "@/components/ui/bottom-nav-bar";
 import { IconChat, IconClipboard, IconHome, IconSearch } from "@/components/icons";
 import { cn } from "@/lib/utils";
@@ -66,7 +65,6 @@ export default function Navbar() {
           />
         </div>
 
-        <AuthButton />
       </div>
 
       {/* Progres scroll halaman */}

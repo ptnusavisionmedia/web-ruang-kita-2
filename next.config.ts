@@ -4,8 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   // Folder keluaran bisa diganti (mis. NEXT_DIST_DIR=.next-build) agar build tidak bentrok dengan dev server.
   distDir: process.env.NEXT_DIST_DIR ?? ".next",
-  // Driver SQLite untuk berkas lokal memakai binary native; jangan di-bundle.
-  serverExternalPackages: ["@libsql/client", "libsql"],
   // Header keamanan dasar (berlaku di Netlify maupun Vercel).
   async headers() {
     return [
