@@ -10,7 +10,7 @@ import { STATIC_FACILITIES, STATIC_PROPERTIES } from "@/lib/static-data";
  */
 // Di hosting serverless (Netlify/Vercel) filesystem-nya sementara, jadi berkas lokal tidak dipakai.
 const serverless = !!(process.env.NETLIFY || process.env.VERCEL);
-const url = process.env.DATABASE_URL || (serverless ? "" : "file:./data/ruangkita.db");
+const url = process.env.DATABASE_URL?.trim() || (serverless ? "" : "file:./data/ruangkita.db");
 
 export const DB_NOT_CONFIGURED_MESSAGE =
   "Database belum dikonfigurasi. Isi DATABASE_URL dan DATABASE_AUTH_TOKEN (Turso) di environment variables.";
@@ -130,7 +130,11 @@ const SCHEMA = [
 
 async function open(): Promise<Client> {
   if (!url) throw new Error(DB_NOT_CONFIGURED_MESSAGE);
-  const config = { url, authToken: process.env.DATABASE_AUTH_TOKEN || undefined };
+  // Turso lewat HTTPS lebih andal di serverless daripada websocket (libsql://).
+  const config = {
+    url: url.replace(/^libsql:\/\//, "https://"),
+    authToken: process.env.DATABASE_AUTH_TOKEN?.trim() || undefined,
+  };
   if (url.startsWith("file:")) {
     const { mkdirSync } = await import("node:fs");
     const { dirname } = await import("node:path");
