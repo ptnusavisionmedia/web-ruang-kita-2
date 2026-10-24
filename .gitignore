@@ -1,0 +1,58 @@
+# dependencies
+node_modules/
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# build / hasil kompilasi
+.next/
+/.next/
+.next-build/
+out/
+/out/
+build/
+/build
+coverage/
+/coverage
+
+# environment & rahasia
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.crt
+credentials/
+secrets/
+
+# akun demo lokal (berisi kata sandi): hanya berkas .example.sql yang boleh di-commit
+supabase/seed_demo_users.sql
+supabase/seed_demo_users.local.sql
+*.local.sql
+supabase/dev/
+
+# debug & lain-lain
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+.netlify
+
+# konfigurasi alat lokal
+.claude/
+
+# salinan lama project di dalam project (jangan di-commit)
+/web kos/
+
+# database SQLite lokal
+/data/
